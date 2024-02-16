@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+    <script type='text/javascript' src='x3Dom/x3dom.js'> </script>
+    <script type='text/javascript' src='x3Dom/x3dom-full.js'> </script>
+
+    <title>Training</title>
+</head>
+<body>
+    <x3d width="800px" height="800px">
+        <scene id="scene">
+
+<!--            <Viewpoint description='DeskLamp' position='0 0.3 3'/>-->
+            <Transform scale="0.4 0.4 0.6" id="mainTransform">
+                <Group id="room">
+                    <Shape DEF="wall">
+                        <Appearance DEF='wallpaper'>
+<!--                            <Material DEF="floor" diffuseColor="1 0 0"/>-->
+                            <ImageTexture url='res/wall.jpg'/>
+                            <TextureTransform scale='2 2'/>
+                        </Appearance>
+                        <Box size="30 0.02 20"/>
+                    </Shape>
+<!--                    Left Wall-->
+                    <Transform translation="-15 15 0 ">
+                        <Transform rotation='0 0 1 1.57'>
+                            <Shape USE='wall'/>
+                        </Transform>
+                    </Transform>
+
+                    <!--Right Wall-->
+                    <Transform translation="15 15 0 ">
+                        <Transform rotation='0 0 1 1.57'>
+                            <Shape USE='wall'/>
+                        </Transform>
+                    </Transform>
+                    <!-- top -->
+                    <Transform translation='0 30 0'>
+                        <Shape USE='wall'/>
+                    </Transform>
+<!--                    Front wall-->
+                    <Transform rotation='1 0 0 1.57'>
+                        <Shape>
+                            <Appearance USE='wallpaper'/>
+                            <IndexedFaceSet coordIndex='0 1 2 7 -1 2 3 6 7 -1 4 5 6 3 -1' solid='false'>
+                                <Coordinate point='0 0 0 25 0 0 25 0 -45 55 0 -45 55 0 0 80 0 0 80 0 -80 0 0 -80'/>
+                            </IndexedFaceSet>
+                        </Shape>
+                    </Transform>
+
+
+
+                </Group>
+            </Transform>
+
+        </scene>
+
+    </x3d>
+</body>
+
+</html>
