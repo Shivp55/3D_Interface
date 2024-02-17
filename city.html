@@ -15,10 +15,16 @@
                 addTrees(z);
             for(let x=-100; x<400; x+=80)
                 addTreesHorizontal(x);
-            for(let x=-100; x<400; x+=80)
-                addTreesHorizontal_front(x);
-
-
+            for(let x=-100; x<500; x+=80)
+                for(let z=200; z<500; z+=80)
+                    addTowers(x,z);
+            for(let x=-100; x<500; x+=80)
+                for(let z=-200; z>-500; z+=-80)
+                    addTowers(x,z);
+            for(let z=480; z>100; z+=-90)
+                addLights(z);
+            for(let z=-130; z>-500; z+=-90)
+                addLights(z);
         }
         function addTrees(z){
             let scene=document.getElementById('scene');
@@ -115,16 +121,72 @@
             // let mainRotation=document.getElementById('mainRotation')
             let mainGroup=document.getElementById('room');
             let streetTransform=document.createElement('transform')
-            streetTransform.setAttribute('translation','-170 50 480')
-            scene.append(streetTransform)
-            let streetGrp=document.createElement('group')
+            streetTransform.setAttribute('translation',x+' 100 ' +z)
+            // scene.append(streetTransform)
 
-            //Pole
-            let poleShape=document.createElement('shape')
-            let poleAppearance=document.createElement('appearance')
-            let poleMaterial=document.createElement('material')
-            poleMaterial.setAttribute('diffuseColor','#aeb1b8')
-            
+            //Towers
+            let towerShape=document.createElement('shape')
+            let towerAppearance=document.createElement('appearance')
+            let towerMaterial=document.createElement('material')
+            towerMaterial.setAttribute('diffuseColor','1 0 0')
+            let tower=document.createElement('box')
+            let towerImg=document.createElement('ImageTexture')
+            towerImg.setAttribute('url','res/tower_texture.jpg')
+            towerImg.setAttribute('repeatT','true')
+            tower.setAttribute('size','50 200 50')
+
+
+            //Append
+            towerAppearance.append(towerImg)
+            towerAppearance.append(towerMaterial)
+            towerShape.append(towerAppearance)
+            towerShape.append(tower)
+            streetTransform.append(towerShape)
+            mainGroup.append(streetTransform)
+            mainTransform.append(mainGroup)
+            scene.append(mainTransform)
+        }
+        function addLights(z){
+            let scene=document.getElementById('scene');
+            let mainTransform=document.getElementById('mainTransform')
+            // let mainRotation=document.getElementById('mainRotation')
+            let mainGroup=document.getElementById('room');
+            let lightTransform=document.createElement('Transform')
+            lightTransform.setAttribute('translation','-180 25 '+z)
+            let lightGroup=document.createElement('group')
+
+            //cylinder
+            let cylinderShape=document.createElement('shape')
+            let cylinderAppearance=document.createElement('appearance')
+            let cylinderMaterial=document.createElement('material')
+            cylinderMaterial.setAttribute('diffuseColor','#aeb1b8')
+            let cylinder=document.createElement('cylinder')
+            cylinder.setAttribute('height','50')
+            cylinder.setAttribute('radius','2.5')
+            cylinderAppearance.append(cylinderMaterial)
+            cylinderShape.append(cylinderAppearance)
+            cylinderShape.append(cylinder)
+            lightGroup.append(cylinderShape)
+
+
+            //sphere
+            let sphereTransform=document.createElement('transform')
+            sphereTransform.setAttribute('translation','0 25 0')
+            let sphereShape=document.createElement('shape')
+            // let sphereAppearance=document.createElement('appearance')
+            // let sphereMaterial=document.createElement('material')
+            // sphereMaterial.setAttribute('diffuseColor','1 0 0')
+            let sphere=document.createElement('sphere')
+            // sphereAppearance.append(sphereMaterial)
+            // sphereShape.append(sphereAppearance)
+            sphere.setAttribute('radius','10')
+            sphereShape.append(sphere)
+            sphereTransform.append(sphereShape)
+            lightGroup.append(sphereTransform)
+            lightTransform.append(lightGroup)
+            mainGroup.append(lightTransform)
+            mainTransform.append(mainGroup)
+            scene.append(mainTransform)
         }
 
     </script>
@@ -214,26 +276,73 @@
               </Shape>
             </Transform>
           </Transform>
-            <Transform translation="-170 50 480">
-                <Group>
-                    <Shape>
-                        <Appearance>
-                            <Material diffuseColor="#aeb1b8" />
-                        </Appearance>
-                        <Cylinder height="100" radius="5"/>
-                    </Shape>
-                    <Transform translation="0 50 0">
-                    <Transform rotation="0 0 1 1">
-                        <Shape>
-                            <Appearance>
-<!--                                <Material diffuseColor="#aeb1b8"/>-->
-                            </Appearance>
-                            <Sphere radius="20"/>
-                        </Shape>
-                    </Transform>
-                    </Transform>
-                </Group>
+            <Transform translation="150 1 300">
+                <Shape>
+                    <Appearance>
+<!--                        <Material diffuseColor="1 0 0"/>-->
+                        <ImageTexture url="res/ground3.jpg"/>
+
+<!--                        </ImageTexture>-->
+                    </Appearance>
+                    <box size="700 1 400"/>
+                </Shape>
             </Transform>
+            <Transform translation="160 12 500">
+                <Shape>
+                    <Appearance>
+<!--                        <Material diffuseColor="1 0 0"/>-->
+                        <ImageTexture url="res/fence.png"/>
+
+<!--                        </ImageTexture>-->
+                    </Appearance>
+                    <box size="730 40 1"/>
+                </Shape>
+            </Transform>
+            <Transform translation="500 12 320">
+                <Shape>
+                    <Appearance>
+<!--                        <Material diffuseColor="1 0 0"/>-->
+                        <ImageTexture url="res/fence.png"/>
+
+                        <!--                        </ImageTexture>-->
+                    </Appearance>
+                    <box size="1 40 360"/>
+                </Shape>
+            </Transform>
+            <Transform translation="150 1 -300">
+                <Shape>
+                    <Appearance>
+                        <!--                        <Material diffuseColor="1 0 0"/>-->
+                        <ImageTexture url="res/ground3.jpg"/>
+
+                        <!--                        </ImageTexture>-->
+                    </Appearance>
+                    <box size="700 1 400"/>
+                </Shape>
+            </Transform>
+            <Transform translation="160 12 -500">
+                <Shape>
+                    <Appearance>
+                        <!--                        <Material diffuseColor="1 0 0"/>-->
+                        <ImageTexture url="res/fence.png"/>
+
+                        <!--                        </ImageTexture>-->
+                    </Appearance>
+                    <box size="730 40 1"/>
+                </Shape>
+            </Transform>
+            <Transform translation="500 12 -320">
+                <Shape>
+                    <Appearance>
+                        <!--                        <Material diffuseColor="1 0 0"/>-->
+                        <ImageTexture url="res/fence.png"/>
+
+                        <!--                        </ImageTexture>-->
+                    </Appearance>
+                    <box size="1 40 360"/>
+                </Shape>
+            </Transform>
+
 
         </Group>
 <!--      </Transform>-->
