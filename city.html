@@ -13,11 +13,17 @@
         function main(){
             for(let z=-500; z<500; z+=80)
                 addTrees(z);
+            for(let x=-100; x<400; x+=80)
+                addTreesHorizontal(x);
+            for(let x=-100; x<400; x+=80)
+                addTreesHorizontal_front(x);
+
+
         }
         function addTrees(z){
             let scene=document.getElementById('scene');
             let mainTransform=document.getElementById('mainTransform')
-            let mainRotation=document.getElementById('mainRotation')
+            // let mainRotation=document.getElementById('mainRotation')
             let mainGroup=document.getElementById('room');
             let treeTransform=document.createElement('Transform');
             treeTransform.setAttribute('translation','-485 25 '+z);
@@ -54,10 +60,73 @@
             treeGrp.append(coneTransform)
             treeTransform.append(treeGrp)
             mainGroup.append(treeTransform)
-            mainRotation.append(mainGroup)
-            mainTransform.append(mainRotation)
+            // mainRotation.append(mainGroup)
+            mainTransform.append(mainGroup)
             scene.append(mainTransform)
         }
+        function addTreesHorizontal(x){
+            let scene=document.getElementById('scene');
+            let mainTransform=document.getElementById('mainTransform')
+            // let mainRotation=document.getElementById('mainRotation')
+            let mainGroup=document.getElementById('room');
+            let treeTransform=document.createElement('Transform');
+            treeTransform.setAttribute('translation',x+' 30 -150');
+            let treeGrp=document.createElement('group');
+
+            // Trunk
+            let trunkShape=document.createElement('shape');
+            let trunkAppearance=document.createElement('appearance')
+            let trunkMaterial=document.createElement('material')
+            trunkMaterial.setAttribute('diffuseColor', '#5d4a36')
+            let trunk=document.createElement('cylinder')
+            trunk.setAttribute('radius','5')
+            trunk.setAttribute('height','50')
+            trunkAppearance.append(trunkMaterial)
+            trunkShape.append(trunkAppearance)
+            trunkShape.append(trunk)
+            treeGrp.append(trunkShape)
+
+            //top
+            let coneTransform=document.createElement('transform')
+            coneTransform.setAttribute('translation', '0 50 0')
+            let coneShape=document.createElement('shape')
+            let coneAppearance=document.createElement('appearance')
+            let img=document.createElement('ImageTexture');
+            img.setAttribute('url','res/tree2.png')
+            let cone=document.createElement('cone')
+            cone.setAttribute('bottomRadius','30')
+            cone.setAttribute('topRadius','1')
+            cone.setAttribute('height','100')
+            coneAppearance.append(img)
+            coneShape.append(coneAppearance)
+            coneShape.append(cone)
+            coneTransform.append(coneShape)
+            treeGrp.append(coneTransform)
+            treeTransform.append(treeGrp)
+            mainGroup.append(treeTransform)
+            // mainRotation.append(mainGroup)
+            mainTransform.append(mainGroup)
+            scene.append(mainTransform)
+        }
+
+        function addTowers(x,z){
+            let scene=document.getElementById('scene');
+            let mainTransform=document.getElementById('mainTransform')
+            // let mainRotation=document.getElementById('mainRotation')
+            let mainGroup=document.getElementById('room');
+            let streetTransform=document.createElement('transform')
+            streetTransform.setAttribute('translation','-170 50 480')
+            scene.append(streetTransform)
+            let streetGrp=document.createElement('group')
+
+            //Pole
+            let poleShape=document.createElement('shape')
+            let poleAppearance=document.createElement('appearance')
+            let poleMaterial=document.createElement('material')
+            poleMaterial.setAttribute('diffuseColor','#aeb1b8')
+            
+        }
+
     </script>
 </head>
 <body onload="main();">
@@ -67,7 +136,7 @@
 <!--    <Viewpoint position='0 0 900' orientation='0 0 0 0' set_bind="false"></Viewpoint>-->
     <Viewpoint position='0 1200 0' orientation='1 0 0 -1.571' set_bind="true" description="top"></Viewpoint>
     <Transform scale="0.4 0.4 0.6" id="mainTransform">
-      <Transform rotation="1 0 0 -50.0" id="mainRotation">
+<!--      <Transform rotation="1 0 0 -50.0" id="mainRotation">-->
         <Group id="room">
           <Shape DEF="wall">
             <Appearance DEF='wallpaper'>
@@ -145,8 +214,29 @@
               </Shape>
             </Transform>
           </Transform>
+            <Transform translation="-170 50 480">
+                <Group>
+                    <Shape>
+                        <Appearance>
+                            <Material diffuseColor="#aeb1b8" />
+                        </Appearance>
+                        <Cylinder height="100" radius="5"/>
+                    </Shape>
+                    <Transform translation="0 50 0">
+                    <Transform rotation="0 0 1 1">
+                        <Shape>
+                            <Appearance>
+<!--                                <Material diffuseColor="#aeb1b8"/>-->
+                            </Appearance>
+                            <Sphere radius="20"/>
+                        </Shape>
+                    </Transform>
+                    </Transform>
+                </Group>
+            </Transform>
+
         </Group>
-      </Transform>
+<!--      </Transform>-->
 
     </Transform>
 
