@@ -7,6 +7,7 @@
   <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
   <script type='text/javascript' src='x3Dom/x3dom.js'> </script>
   <script type='text/javascript' src='x3Dom/x3dom-full.js'> </script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <title>Training</title>
     <script>
@@ -192,166 +193,160 @@
     </script>
 </head>
 <body onload="main();">
-<x3d height="800px" width="100%" showStat="true">
-  <scene id="scene">
 
-<!--    <Viewpoint position='0 0 900' orientation='0 0 0 0' set_bind="false"></Viewpoint>-->
-    <Viewpoint position='0 1200 0' orientation='1 0 0 -1.571' set_bind="true" description="top"></Viewpoint>
-    <Transform scale="0.4 0.4 0.6" id="mainTransform">
-<!--      <Transform rotation="1 0 0 -50.0" id="mainRotation">-->
-        <Group id="room">
-          <Shape DEF="wall">
-            <Appearance DEF='wallpaper'>
-              <!--                            <Material DEF="floor" diffuseColor="1 0 0"/>-->
-<!--              <ImageTexture url='res/Road-Texture.jpg'/>-->
-<!--              <TextureTransform scale='10 10'/>-->
-            </Appearance>
-            <Box size="1000 0.2 1000"/>
-          </Shape>
-<!--          Road-->
-          <Transform translation="-315 3.5 0 ">
-            <Shape>
-              <Appearance>
-<!--                <Material DEF="roadSide" diffuseColor="#3c6720"></Material>-->
-                <ImageTexture url='res/Road-Texture.jpg'/>
-              </Appearance>
-              <Box size="230 1 1000"/>
-            </Shape>
-          </Transform>
-          <Transform translation="150 3.5 0 ">
-            <Transform rotation="0 1 0 -1.57">
-              <Shape>
-                <Appearance>
-                  <Material DEF="roadSide" diffuseColor="#3c6720"></Material>
-                  <ImageTexture url='res/Road-Texture.jpg'/>
+<div style="margin:50px 450px 0 250px;" >
+    <x3d height="500px" width="1000px" showStat="true" >
+      <scene id="scene">
+    <!--    <Viewpoint position='0 0 900' orientation='0 0 0 0' set_bind="false" ></Viewpoint>-->
+<!--        <Viewpoint position='0 1200 0' orientation='1 0 0 -1.571' set_bind="true" description="top"></Viewpoint>-->
+          <Viewpoint position='0 1000 0' orientation='1 0 0 -1.571' description="camera" id="top"></Viewpoint>
+          <Viewpoint position='0 200 800' orientation='1 0 0 -0.195' description="camera" id="front"></Viewpoint>
+          <Viewpoint position='-1000 0 0' orientation='0 1 0 -1.571' description="camera" id="right"></Viewpoint>
+          <Viewpoint position='1000 0 0' orientation='0 1 0 1.571' description="camera" id="left"></Viewpoint>
+
+          <Transform scale="0.6 0.4 0.6" id="mainTransform">
+    <!--      <Transform rotation="1 0 0 -50.0" id="mainRotation">-->
+            <Group id="room">
+              <Shape DEF="wall">
+                <Appearance DEF='wallpaper'>
+                  <!--                            <Material DEF="floor" diffuseColor="1 0 0"/>-->
+    <!--              <ImageTexture url='res/Road-Texture.jpg'/>-->
+    <!--              <TextureTransform scale='10 10'/>-->
                 </Appearance>
-                <Box size="230 1 700"/>
+                <Box size="1000 0.2 1000"/>
               </Shape>
-            </Transform>
-          </Transform>
-<!--          Sides of Roads-->
-          <Transform translation="-465 3.5 0 ">
-            <Shape>
-              <Appearance>
-                <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
-              </Appearance>
-              <Box size="70 5 1000"/>
-            </Shape>
-          </Transform>
-          <Transform translation="-165 3.5 300 ">
-            <Shape>
-              <Appearance>
-                <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
-
-              </Appearance>
-              <Box size="70 5 400"/>
-            </Shape>
-          </Transform>
-          <Transform translation="-165 3.5 -300 ">
-            <Shape>
-              <Appearance>
-                <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
-              </Appearance>
-              <Box size="70 5 400"/>
-
-            </Shape>
-          </Transform>
-          <Transform translation="185 3.5 -135 ">
-            <Transform rotation="0 1 0 -1.57">
-              <Shape>
-                <Appearance>
-                  <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
-                </Appearance>
-                <Box size="70 5 630"/>
-              </Shape>
-            </Transform>
-          </Transform>
-          <Transform translation="185 3.5 135 ">
-            <Transform rotation="0 1 0 -1.57">
-              <Shape>
-                <Appearance>
-                  <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
-                </Appearance>
-                <Box size="70 5 630"/>
-              </Shape>
-            </Transform>
-          </Transform>
-            <Transform translation="150 1 300">
+    <!--          Road-->
+              <Transform translation="-315 3.5 0 ">
                 <Shape>
-                    <Appearance>
-<!--                        <Material diffuseColor="1 0 0"/>-->
-                        <ImageTexture url="res/ground3.jpg"/>
-
-<!--                        </ImageTexture>-->
-                    </Appearance>
-                    <box size="700 1 400"/>
+                  <Appearance>
+    <!--                <Material DEF="roadSide" diffuseColor="#3c6720"></Material>-->
+                    <ImageTexture url='res/Road-Texture.jpg'/>
+                  </Appearance>
+                  <Box size="230 1 1000"/>
                 </Shape>
-            </Transform>
-            <Transform translation="160 12 500">
+              </Transform>
+              <Transform translation="150 3.5 0 ">
+                <Transform rotation="0 1 0 -1.57">
+                  <Shape>
+                    <Appearance>
+                      <Material DEF="roadSide" diffuseColor="#3c6720"></Material>
+                      <ImageTexture url='res/Road-Texture.jpg'/>
+                    </Appearance>
+                    <Box size="230 1 700"/>
+                  </Shape>
+                </Transform>
+              </Transform>
+    <!--          Sides of Roads-->
+              <Transform translation="-465 3.5 0 ">
                 <Shape>
-                    <Appearance>
-<!--                        <Material diffuseColor="1 0 0"/>-->
-                        <ImageTexture url="res/fence.png"/>
-
-<!--                        </ImageTexture>-->
-                    </Appearance>
-                    <box size="730 40 1"/>
+                  <Appearance>
+                    <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
+                  </Appearance>
+                  <Box size="70 5 1000"/>
                 </Shape>
-            </Transform>
-            <Transform translation="500 12 320">
+              </Transform>
+              <Transform translation="-165 3.5 300 ">
                 <Shape>
-                    <Appearance>
-<!--                        <Material diffuseColor="1 0 0"/>-->
-                        <ImageTexture url="res/fence.png"/>
+                  <Appearance>
+                    <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
 
-                        <!--                        </ImageTexture>-->
-                    </Appearance>
-                    <box size="1 40 360"/>
+                  </Appearance>
+                  <Box size="70 5 400"/>
                 </Shape>
-            </Transform>
-            <Transform translation="150 1 -300">
+              </Transform>
+              <Transform translation="-165 3.5 -300 ">
                 <Shape>
-                    <Appearance>
-                        <!--                        <Material diffuseColor="1 0 0"/>-->
-                        <ImageTexture url="res/ground3.jpg"/>
-
-                        <!--                        </ImageTexture>-->
-                    </Appearance>
-                    <box size="700 1 400"/>
+                  <Appearance>
+                    <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
+                  </Appearance>
+                  <Box size="70 5 400"/>
                 </Shape>
-            </Transform>
-            <Transform translation="160 12 -500">
-                <Shape>
+              </Transform>
+              <Transform translation="185 3.5 -135 ">
+                <Transform rotation="0 1 0 -1.57">
+                  <Shape>
                     <Appearance>
-                        <!--                        <Material diffuseColor="1 0 0"/>-->
-                        <ImageTexture url="res/fence.png"/>
-
-                        <!--                        </ImageTexture>-->
+                      <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
                     </Appearance>
-                    <box size="730 40 1"/>
-                </Shape>
-            </Transform>
-            <Transform translation="500 12 -320">
-                <Shape>
+                    <Box size="70 5 630"/>
+                  </Shape>
+                </Transform>
+              </Transform>
+              <Transform translation="185 3.5 135 ">
+                <Transform rotation="0 1 0 -1.57">
+                  <Shape>
                     <Appearance>
-                        <!--                        <Material diffuseColor="1 0 0"/>-->
-                        <ImageTexture url="res/fence.png"/>
-
-                        <!--                        </ImageTexture>-->
+                      <Material DEF="roadSide" diffuseColor="#3c5720"></Material>
                     </Appearance>
-                    <box size="1 40 360"/>
-                </Shape>
-            </Transform>
+                    <Box size="70 5 630"/>
+                  </Shape>
+                </Transform>
+              </Transform>
+                <Transform translation="150 1 300">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url="res/ground3.jpg"/>
+                        </Appearance>
+                        <box size="700 1 400"/>
+                    </Shape>
+                </Transform>
+                <Transform translation="160 12 500">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url="res/fence.png"/>
 
+                        </Appearance>
+                        <box size="730 40 1"/>
+                    </Shape>
+                </Transform>
+                <Transform translation="500 12 320">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url="res/fence.png"/>
+                        </Appearance>
+                        <box size="1 40 360"/>
+                    </Shape>
+                </Transform>
+                <Transform translation="150 1 -300">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url="res/ground3.jpg"/>
+                        </Appearance>
+                        <box size="700 1 400"/>
+                    </Shape>
+                </Transform>
+                <Transform translation="160 12 -500">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url="res/fence.png"/>
+                        </Appearance>
+                        <box size="730 40 1"/>
+                    </Shape>
+                </Transform>
+                <Transform translation="500 12 -320">
+                    <Shape>
+                        <Appearance>
+                            <ImageTexture url="res/fence.png"/>
+                        </Appearance>
+                        <box size="1 40 360"/>
+                    </Shape>
+                </Transform>
+            </Group>
+       </Transform>
+      </scene>
+    </x3d>
+</div>
+<div class="w3-container w3-center">
+    <h2>Button Bars</h2>
+    <p>Buttons bars can be centered using the <strong>w3-center</strong> class:</p>
+    <div class="w3-bar">
+        <button class="w3-button w3-teal" onclick="document.getElementById('top').setAttribute('set_bind','true')">Top</button>
+        <button class="w3-button w3-black" onclick="document.getElementById('front').setAttribute('set_bind','true')">Front</button>
+        <button class="w3-button w3-red" onclick="document.getElementById('left').setAttribute('set_bind','true')">Left</button>
+        <button class="w3-button w3-blue" onclick="document.getElementById('right').setAttribute('set_bind','true')">Right</button>
+    </div>
+</div>
 
-        </Group>
-<!--      </Transform>-->
-
-    </Transform>
-
-  </scene>
-
-</x3d>
 </body>
 
 </html>
